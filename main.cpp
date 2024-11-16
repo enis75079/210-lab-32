@@ -73,7 +73,8 @@ int main() {
                     int randLane;
                     do {
                         randLane = rand() % INIT_SIZE + 1;
-                    } while (randLane == i) {
+                    } while (randLane == i);
+
                         Car switchCar = tollLane[i].back();
                         tollLane[i].pop_back();
                         tollLane[randLane].push_back(switchCar);
@@ -83,15 +84,14 @@ int main() {
                     }
                 }
             }
-        }
+
         for (int i = 0; i < INIT_SIZE; i++) {
-        cout << "Lane " << i + 1 << ":" << endl;
-        for (auto car : tollLane[i]) {
-            car.print();
+            cout << "Lane " << i + 1 << " queue: " << endl;
+            for (auto car : tollLane[i]) {
+                car.print();
+            }
         }
-    }
+        cout << endl;
         n++;
     }
-
-    return 0;
 }
