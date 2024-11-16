@@ -59,7 +59,9 @@ int main() {
 
             // 46% probability: Car leaves
             if (randNum <= LEAVE) {
-                cout << "Operation: Car"
+                cout << "Lane " << i + 1 << ": Paid";
+                tollLane[i].front().print();
+                tollLane[i].pop_front();
             }
         }
         
