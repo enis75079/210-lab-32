@@ -67,7 +67,7 @@ int main() {
                     Car newCar;
                     tollLane[j].push_back(newCar);
                     newCar.print();       
-                // 15% probability: Car joins                                                                                                                                                                                                                                                                                                                                           
+                // 15% probability: Car switch                                                                                                                                                                                                                                                                                                                                           
                 } else if (randNum <= LEAVE + JOIN + SHIFT) {
                     if (!tollLane[j].empty()) {                    
                         int randLane;
@@ -77,7 +77,7 @@ int main() {
 
                         Car switchCar = tollLane[j].back();
                         tollLane[j].pop_back();
-                        tollLane[randLane].push_back(switchCar);                                                
+                        tollLane[randLane].push_back(switchCar);                                              
                         cout << "Lane " << i + 1 << ": Switched: ";
                         switchCar.print();
                     }
