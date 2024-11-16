@@ -51,7 +51,7 @@ int main() {
 
     // loop until the time value equals 20 ie. runs the simulation for 20 time periods
     while (n != 20) {
-        cout << "Time: " << n << " ";
+        cout << "\nTime: " << n + 1 << endl;
         
         for (int i = 0; i < INIT_SIZE; i++) {
             if (!tollLane[i].empty()) {
