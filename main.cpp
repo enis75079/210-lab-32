@@ -12,21 +12,25 @@ Naveen Islam
 #include <ctime>
 using namespace std;
 
-// probability that a car pays the toll and leaves
-const double LEAVE = 0.55;
+// probability for whether the car will pay the toll and leave, join, or shift in the queue
+const double LEAVE = 0.46;
+const double JOIN = 0.39;
+const double SHIFT = 0.15;
+
 
 // main function
 int main() {
     srand(time(0));
 
     // initial size of the deque when the simulation starts
-    const int INIT_SIZE = 2;
+    const int INIT_SIZE = 4;
 
     // creates a deque of Car objects
     deque<Car> tollLane;
 
     // pushes the Car objects into the created deque
     for (int i = 0; i < INIT_SIZE; i++) {
+        int numCar = rand() % 3 + 1;
         tollLane.push_back(Car());
     }
 
@@ -40,8 +44,8 @@ int main() {
     // time value
     int n = 0;
 
-    // while toll isn't empty
-    while (!tollLane.empty()) {
+    // loop until the time value equals 20 ie. runs the simulation for 20 time periods
+    while (n != 20) {
         cout << "Time: " << n << " ";
         //creates a random number that determines whether the car objects will leave or join
         double randNum = (double)rand() / RAND_MAX;
