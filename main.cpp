@@ -34,6 +34,7 @@ int main() {
     int n = 0;
     while (tollLane.empty() != false) {
         cout << "Time: " << n << endl;
+        double randNum = (double)rand() % 1.00 + 0.1;
         
         n++;
     }
