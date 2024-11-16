@@ -63,7 +63,15 @@ int main() {
                     cout << "Lane " << i + 1 << ": Paid: ";
                     tollLane[i].front().print();
                     tollLane[i].pop_front();
-                } 
+                // 39% probability: Car joins    
+                } else if (randNum <= LEAVE + JOIN) {
+                    cout << "Lane " << i + 1 << ": Joined: ";
+                    Car newCar;
+                    tollLane[i].push_back(newCar);
+                    newCar.print();
+                } else if (randNum <= LEAVE + JOIN + SHIFT) {
+                    
+                }
             }
         }
         n++;
