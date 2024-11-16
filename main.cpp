@@ -51,18 +51,20 @@ int main() {
             cout << "Operation: Car paid: ";
             tollLane.front().print();
             tollLane.pop_front();
-        // if the randNum is apart of the 45%
+        // if the randNum is apart of the 45%, create a new Car object that joins the deque
         } else {
             cout << "Operation: Joined lane: ";
             Car nCar;
             tollLane.push_back(nCar);
             nCar.print();
         }
+        // output the current queue
         cout << "Queue:" << endl;
         for (auto cars : tollLane) {
             cars.print();
         }
         cout << endl;
+        // increment the time value
         n++;
     }
     cout << "Empty" << endl;
