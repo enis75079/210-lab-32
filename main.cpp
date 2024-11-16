@@ -32,7 +32,7 @@ int main() {
     cout << endl;
 
     int n = 0;
-    while (tollLane.empty() != false) {
+    while (tollLane.empty() != true) {
         cout << "Time: " << n << endl;
         double randNum = (double)rand() / RAND_MAX;
         
@@ -41,7 +41,10 @@ int main() {
             tollLane.front().print();
             tollLane.pop_front();
         } else {
-            return 0;
+            cout << "Operation: Joined lane: ";
+            Car nCar;
+            tollLane.push_back(nCar);
+            nCar.print();
         }
         cout << "Queue:" << endl;
         for (auto cars : tollLane) {
@@ -50,6 +53,8 @@ int main() {
 
         n++;
     }
+
+    cout << "Empty" << endl;
 
     return 0;
 }
