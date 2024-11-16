@@ -26,24 +26,25 @@ int main() {
     const int INIT_SIZE = 4;
 
     // creates a deque of Car objects
-    deque<Car> tollLane;
+    deque<Car> tollLane[INIT_SIZE];
 
     // pushes the Car objects into the created deque
     for (int i = 0; i < INIT_SIZE; i++) {
         int numCar = rand() % 3 + 1;
         for (int j = 0; j < numCar; j++) {
-           tollLane.push_back(Car()); 
+           tollLane[i].push_back(Car()); 
         }
     }
 
     // intital queue before the while loop begins
     cout << "Initial Queue:" << endl;
     for (int i = 0; i < INIT_SIZE; i++) {
-        for (auto car : tollLane) {
+        cout << "Lane " << i << ": " ;
+        for (auto car : tollLane[i]) {
             car.print();
         }
     }
-     cout << endl;
+    cout << endl;
      
     // time value
     int n = 0;
