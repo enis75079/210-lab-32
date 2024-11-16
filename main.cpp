@@ -50,10 +50,10 @@ int main() {
     int n = 0;
 
     // loop until the time value equals 20 ie. runs the simulation for 20 time periods
-    while (n != 20) {
-        cout << "\nTime: " << n + 1 << endl;
+    for (int i = 0; i < 20; i++) {
+        cout << "\nTime: " << i + 1 << endl;
         
-        for (int i = 0; i < INIT_SIZE; i++) {
+        for (int j = 0; j < INIT_SIZE; j++) {
             if (!tollLane[i].empty()) {
                 //creates a random number that determines whether the car objects will leave or join
                 double randNum = (double)rand() / RAND_MAX;
@@ -61,22 +61,23 @@ int main() {
                 // 46% probability: Car leaves
                 if (randNum <= LEAVE) {
                     cout << "Lane " << i + 1 << ": Paid: ";
-                    tollLane[i].front().print();
-                    tollLane[i].pop_front();
+                    tollLane[j].front().print();
+                    tollLane[j].pop_front();
                 // 39% probability: Car joins    
                 } else if (randNum <= LEAVE + JOIN) {
-                    cout << "Lane " << i + 1 << ": Joined: ";
+                    cout << "Lane " << j + 1 << ": Joined: ";
                     Car newCar;
-                    tollLane[i].push_back(newCar);
+                    tollLane[j].push_back(newCar);
                     newCar.print();
                 } else if (randNum <= LEAVE + JOIN + SHIFT) {
-                    int randLane;
-                    do {
-                        randLane = rand() % INIT_SIZE + 1;
-                    } while (randLane == i);
+                    if (!tollLane[j].empty()) {                    
+                        int randLane;
+                        do {
+                            randLane = rand() % INIT_SIZE + 1;
+                        } while (randLane == j);
 
-                        Car switchCar = tollLane[i].back();
-                        tollLane[i].pop_back();
+                        Car switchCar = tollLane[j].back();
+                        tollLane[j].pop_back();
                         tollLane[randLane].push_back(switchCar);
 
                         cout << "Lane " << i + 1 << ": Switched: ";
@@ -84,14 +85,14 @@ int main() {
                     }
                 }
             }
+        }
 
-        for (int i = 0; i < INIT_SIZE; i++) {
-            cout << "Lane " << i + 1 << " queue: " << endl;
-            for (auto car : tollLane[i]) {
+        for (int x = 0; x < INIT_SIZE; x++) {
+            cout << "Lane " << x + 1 << " queue: " << endl;
+            for (auto car : tollLane[x]) {
                 car.print();
             }
         }
         cout << endl;
-        n++;
     }
 }
