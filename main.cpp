@@ -54,19 +54,20 @@ int main() {
         cout << "Time: " << n << " ";
         
         for (int i = 0; i < INIT_SIZE; i++) {
-            //creates a random number that determines whether the car objects will leave or join
-            double randNum = (double)rand() / RAND_MAX;
+            if (!tollLane[i].empty()) {
+                //creates a random number that determines whether the car objects will leave or join
+                double randNum = (double)rand() / RAND_MAX;
 
-            // 46% probability: Car leaves
-            if (randNum <= LEAVE) {
-                cout << "Lane " << i + 1 << ": Paid";
-                tollLane[i].front().print();
-                tollLane[i].pop_front();
+                // 46% probability: Car leaves
+                if (randNum <= LEAVE) {
+                    cout << "Lane " << i + 1 << ": Paid: ";
+                    tollLane[i].front().print();
+                    tollLane[i].pop_front();
+                } 
             }
         }
-        
+        n++;
     }
-    cout << "Empty" << endl;
 
     return 0;
 }
