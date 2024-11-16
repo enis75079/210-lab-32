@@ -70,10 +70,26 @@ int main() {
                     tollLane[i].push_back(newCar);
                     newCar.print();
                 } else if (randNum <= LEAVE + JOIN + SHIFT) {
-                    
+                    int randLane;
+                    do {
+                        randLane = rand() % INIT_SIZE + 1;
+                    } while (randLane == i) {
+                        Car switchCar = tollLane[i].back();
+                        tollLane[i].pop_back();
+                        tollLane[randLane].push_back(switchCar);
+
+                        cout << "Lane " << i + 1 << ": Switched: ";
+                        switchCar.print();
+                    }
                 }
             }
         }
+        for (int i = 0; i < INIT_SIZE; i++) {
+        cout << "Lane " << i + 1 << ":" << endl;
+        for (auto car : tollLane[i]) {
+            car.print();
+        }
+    }
         n++;
     }
 
