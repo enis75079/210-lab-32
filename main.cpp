@@ -31,17 +31,19 @@ int main() {
     // pushes the Car objects into the created deque
     for (int i = 0; i < INIT_SIZE; i++) {
         int numCar = rand() % 3 + 1;
-        for (int j = 0; j <= numCar; j++) {
+        for (int j = 0; j < numCar; j++) {
            tollLane.push_back(Car()); 
         }
     }
 
     // intital queue before the while loop begins
     cout << "Initial Queue:" << endl;
-    for (auto cars : tollLane) {
-        cars.print();
+    for (int i = 0; i < INIT_SIZE; i++) {
+        for (auto car : tollLane) {
+            car.print();
+        }
     }
-    cout << endl;
+     cout << endl;
      
     // time value
     int n = 0;
