@@ -31,7 +31,9 @@ int main() {
     // pushes the Car objects into the created deque
     for (int i = 0; i < INIT_SIZE; i++) {
         int numCar = rand() % 3 + 1;
-        tollLane.push_back(Car());
+        for (int j = 0; j <= numCar; j++) {
+           tollLane.push_back(Car()); 
+        }
     }
 
     // intital queue before the while loop begins
@@ -45,7 +47,7 @@ int main() {
     int n = 0;
 
     // loop until the time value equals 20 ie. runs the simulation for 20 time periods
-    while (n != 20) {
+    /*while (n != 20) {
         cout << "Time: " << n << " ";
         //creates a random number that determines whether the car objects will leave or join
         double randNum = (double)rand() / RAND_MAX;
@@ -71,7 +73,7 @@ int main() {
         // increment the time value
         n++;
     }
-    cout << "Empty" << endl;
+    cout << "Empty" << endl;*/
 
     return 0;
 }
