@@ -45,9 +45,7 @@ int main() {
         }
     }
     cout << endl;
-     
-    // time value
-    int n = 0;
+    
 
     // loop until the time value equals 20 ie. runs the simulation for 20 time periods
     for (int i = 0; i < 20; i++) {
@@ -87,6 +85,7 @@ int main() {
             }
         }
 
+        // print lane queue after all operations finished
         for (int x = 0; x < INIT_SIZE; x++) {
             cout << "Lane " << x + 1 << " queue: " << endl;
             for (auto car : tollLane[x]) {
