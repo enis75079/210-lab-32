@@ -52,7 +52,7 @@ int main() {
         cout << "\nTime: " << i + 1 << endl;
         
         for (int j = 0; j < INIT_SIZE; j++) {
-            if (!tollLane[i].empty()) {
+            if (!tollLane[j].empty()) {
                 //creates a random number that determines whether the car objects will leave or join
                 double randNum = (double)rand() / RAND_MAX;
 
@@ -66,18 +66,18 @@ int main() {
                     cout << "Lane " << j + 1 << ": Joined: ";
                     Car newCar;
                     tollLane[j].push_back(newCar);
-                    newCar.print();
+                    newCar.print();       
+                // 15% probability: Car joins                                                                                                                                                                                                                                                                                                                                           
                 } else if (randNum <= LEAVE + JOIN + SHIFT) {
                     if (!tollLane[j].empty()) {                    
                         int randLane;
                         do {
-                            randLane = rand() % INIT_SIZE + 1;
+                            randLane = rand() % INIT_SIZE;
                         } while (randLane == j);
 
                         Car switchCar = tollLane[j].back();
                         tollLane[j].pop_back();
-                        tollLane[randLane].push_back(switchCar);
-
+                        tollLane[randLane].push_back(switchCar);                                                
                         cout << "Lane " << i + 1 << ": Switched: ";
                         switchCar.print();
                     }
